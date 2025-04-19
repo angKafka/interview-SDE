@@ -14,6 +14,14 @@ public class Train {
     public Train() {
     }
 
+    public Train(String trainId, String trainNo, List<List<Integer>> seats, Map<String, String> stationTime, List<String> stations){
+        this.trainId = trainId;
+        this.trainNo = trainNo;
+        this.seats = seats;
+        this.stationTime = stationTime;
+        this.stations = stations;
+    }
+
     public String getTrainId() {
         return trainId;
     }
@@ -54,7 +62,14 @@ public class Train {
         this.stations = stations;
     }
 
-    public String getTrainInfo(){
-        return String.format("Train ID: %s Train No: %s", trainId, trainNo);
+    public String getTrainInfo() {
+        return String.format(
+                "Train ID: %s | Train No: %s\nRoute: %s\nDeparture Time: %s | Arrival Time: %s\n",
+                trainId,
+                trainNo,
+                String.join(" -> ", stations),
+                stationTime.getOrDefault(stations.get(0), "N/A"), // departure
+                stationTime.getOrDefault(stations.get(stations.size() - 1), "N/A") // arrival
+        );
     }
 }
