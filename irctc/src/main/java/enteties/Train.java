@@ -1,6 +1,7 @@
 package enteties;
 
-import java.sql.Time;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 import java.util.Map;
 
@@ -62,6 +63,7 @@ public class Train {
         this.stations = stations;
     }
 
+    @JsonIgnore
     public String getTrainInfo() {
         return String.format(
                 "Train ID: %s | Train No: %s\nRoute: %s\nDeparture Time: %s | Arrival Time: %s\n",

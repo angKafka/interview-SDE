@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import enteties.Train;
 import enteties.User;
 import util.UserServiceUtil;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -95,6 +94,36 @@ public class UserBookingService {
             return trainService.searchTrains(source, destination);
         } catch (IOException e) {
             return new ArrayList<>();
+        }
+    }
+
+    //Search Seats
+    public List<List<Integer>> trainSeats(String trainId) throws IOException {
+        TrainService trainService = new TrainService();
+        return trainService.getSeats(trainId);
+    }
+
+    //Booking seats
+    public Boolean bookTickets(String trainId, int row, int seat) {
+        try{
+            TrainService trainService = new TrainService();
+            Train train = trainService.getTrain(trainId);
+            List<List<Integer>> seats = trainService.getSeats(trainId);
+
+            if(row >= 0  && row < seats.size() && seat >= 0 && seat < seats.get(row).size()){
+                if(seats.get(row).get(seat) == 0){
+                    seats.get(row).set(seat, 1);
+                    train.setSeats(seats);
+                    trainService.saveTrain(train);
+                    return true; // booking successfully.
+                }else{
+                    return false; //seat already booked.
+                }
+            }else {
+                return false; //invalid row or seat index.
+            }
+        }catch (IOException e){
+            return false;
         }
     }
 }
