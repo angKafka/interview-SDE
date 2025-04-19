@@ -1,3 +1,4 @@
+![Thread Pool Image](https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F2ed7zgj6k1a3dd9f75o7.png)
 # Java Multithreaded ThreadPool Server 💻⚡
 
 A scalable, efficient multithreaded server built in Java that listens on port `8010` and handles concurrent client requests using a custom ThreadPool — inspired by the asynchronous nature of JavaScript's Event Loop.
@@ -48,3 +49,6 @@ Load tested the server using Apache JMeter:
 - Observed ThreadPool resilience under burst loads
 
 Test Plan available in `TCP Sampler.jmx` file.
+
+Please use the blog perfect content by ,
+https://dev.to/ssd/multithreading-event-loops-vs-thread-pools-and-more-48di
