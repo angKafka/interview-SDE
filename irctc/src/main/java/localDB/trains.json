@@ -1,34 +1,23 @@
-[
-  {
-    "train_id": "TR001",
-    "train_no": "12045",
-    "seats": [
-      [1, 1, 0, 0, 1],
-      [1, 1, 1, 0, 0],
-      [0, 0, 1, 1, 1]
-    ],
-    "station_time": {
-      "Delhi": "08:00:00",
-      "Agra": "10:30:00",
-      "Kanpur": "13:15:00",
-      "Lucknow": "15:00:00"
-    },
-    "stations": ["Delhi", "Agra", "Kanpur", "Lucknow"]
+[ {
+  "train_id" : "TR001",
+  "train_no" : "12045",
+  "seats" : [ [ 1, 1, 1, 1, 1 ], [ 1, 1, 1, 0, 0 ], [ 0, 0, 1, 1, 1 ] ],
+  "station_time" : {
+    "Delhi" : "08:00:00",
+    "Agra" : "10:30:00",
+    "Kanpur" : "13:15:00",
+    "Lucknow" : "15:00:00"
   },
-  {
-    "train_id": "TR002",
-    "train_no": "12322",
-    "seats": [
-      [1, 0, 0, 1, 1],
-      [1, 1, 0, 1, 1],
-      [1, 1, 1, 1, 0]
-    ],
-    "station_time": {
-      "Mumbai": "09:00:00",
-      "Surat": "11:45:00",
-      "Vadodara": "13:30:00",
-      "Ahmedabad": "15:20:00"
-    },
-    "stations": ["Mumbai", "Surat", "Vadodara", "Ahmedabad"]
-  }
-]
+  "stations" : [ "Delhi", "Agra", "Kanpur", "Lucknow" ]
+}, {
+  "train_id" : "TR002",
+  "train_no" : "12322",
+  "seats" : [ [ 1, 0, 0, 1, 1 ], [ 1, 1, 0, 1, 1 ], [ 1, 1, 1, 1, 0 ] ],
+  "station_time" : {
+    "Mumbai" : "09:00:00",
+    "Surat" : "11:45:00",
+    "Vadodara" : "13:30:00",
+    "Ahmedabad" : "15:20:00"
+  },
+  "stations" : [ "Mumbai", "Surat", "Vadodara", "Ahmedabad" ]
+} ]
