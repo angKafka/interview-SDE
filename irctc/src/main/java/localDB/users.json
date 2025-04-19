@@ -1,29 +1,7 @@
-[
-  {
-    "user_id" : "12345",
-    "username" : "Raj Kumar Dutta",
-    "hashed_password" : "abc12345",
-    "tickets_booked" :[
-      {
-        "source" : "Bengaluru",
-        "destination" : "Delhi",
-        "date_of_travel" : "2023-12-08T18:30:00Z",
-        "train" : {
-          "train_id" : "bacs",
-          "train_no" : "123456",
-          "seats" : [
-            [0,0,0,0,0,0],
-            [0,0,0,0,0,0],
-            [0,0,0,0,0,0],
-            [0,0,0,0,0,0]
-          ],
-          "stations" : {
-            "Bengaluru" : "13:50:00",
-            "Jaipur" : "12:50:00",
-            "Delhi" : "11:50:00"
-          }
-        }
-      }
-    ]
-  }
-]
+[ {
+  "user_id" : "6bf00fca-8c85-40c9-99b8-2bf208cfbf35",
+  "username" : "Raj",
+  "password" : "Prerna1234",
+  "hashed_password" : "$2a$10$0MoamtykfcFd6k907wY2XOYkGKnLfkqNjsfETrAkXFOBK.DP24DqK",
+  "tickets_booked" : [ ]
+} ]

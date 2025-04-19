@@ -2,26 +2,38 @@ package service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import enteties.Train;
 import enteties.User;
 import util.UserServiceUtil;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class UserBookingService {
     private User user;
     private List<User> userList;
-    private ObjectMapper mapper = new ObjectMapper();
-    private static final String USER_PATH = "src/main/java/localDB/users.json";
+    private ObjectMapper mapper = new ObjectMapper().setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE)
+            .enable(SerializationFeature.INDENT_OUTPUT);
+    private static final String USER_PATH = "irctc/src/main/java/localDB/users.json";
+
 
     public UserBookingService(User user) throws IOException {
         this.user = user;
-        File users = new File(USER_PATH);
-        this.userList = mapper.readValue(users, new TypeReference<List<User>>() {});
+        loadUserListFromFile();
     }
 
+    public UserBookingService() throws IOException {
+        loadUserListFromFile();
+    }
+
+    private void loadUserListFromFile() throws IOException {
+        userList = mapper.readValue(new File(USER_PATH), new TypeReference<List<User>>() {});
+    }
 
     public Boolean loginUser(){
         Optional<User> foundUser = userList.stream().filter(user1 -> {
@@ -49,11 +61,40 @@ public class UserBookingService {
 
     //FetchBooking
     public void fetchBooking(){
-        user.printTickets();
+       try{
+           if(loginUser()){
+               System.out.println("Fetch your bookings");
+               user.printTickets();
+           }
+       }catch (Exception e){
+           if(e instanceof NullPointerException){
+               System.out.println("Please login with your username and password");
+           }
+       }
     }
 
     //CancelBooking
+    public Boolean cancelBooking(String ticketId) throws IOException {
+        Optional<User> userBooked = userList.stream()
+                .filter(user1 -> user1.getTicketsBooked().removeIf(ticket -> ticket.getTicketId().equals(ticketId)))
+                .findFirst();
 
-    //BookTicket
+        if (userBooked.isPresent()) {
+            user = userBooked.get();
+            System.out.printf("Booking canceled for user: %s ", user.getUsername());
+            saveUserListToFile();
+            return Boolean.TRUE;
+        }
+        return Boolean.FALSE;
+    }
 
+    //Get Trains
+    public List<Train> getTrains(String source, String destination){
+        try{
+            TrainService trainService = new TrainService();
+            return trainService.searchTrains(source, destination);
+        } catch (IOException e) {
+            return new ArrayList<>();
+        }
+    }
 }
