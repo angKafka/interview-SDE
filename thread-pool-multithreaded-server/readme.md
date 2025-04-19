@@ -47,4 +47,4 @@ Load tested the server using Apache JMeter:
 - Achieved [X] requests/sec with minimal latency
 - Observed ThreadPool resilience under burst loads
 
-Test Plan available in `/load-tests` folder.
+Test Plan available in `TCP Sampler.jmx` file.
