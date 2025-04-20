@@ -18,7 +18,7 @@ A scalable, efficient multithreaded server built in Java that listens on port `8
 - Can be extended to build REST-like API services
 
 ## 📂 Project Structure
-Server.java           // Main multithreaded server logic
+Server.java           // springaoptut.Main multithreaded server logic
 ClientHandler.java    // Logic to process each client request (extendable)
 
 ## 📌 How it Works
