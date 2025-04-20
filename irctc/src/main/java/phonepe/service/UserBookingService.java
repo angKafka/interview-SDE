@@ -1,4 +1,4 @@
-package service;
+package phonepe.service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import enteties.Train;
 import enteties.User;
-import util.UserServiceUtil;
+import phonepe.util.UserServiceUtil;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;

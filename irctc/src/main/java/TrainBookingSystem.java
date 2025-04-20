@@ -1,7 +1,7 @@
 import enteties.Train;
 import enteties.User;
-import service.UserBookingService;
-import util.UserServiceUtil;
+import phonepe.service.UserBookingService;
+import phonepe.util.UserServiceUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;

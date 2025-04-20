@@ -1,4 +1,4 @@
-package service;
+package phonepe.service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
